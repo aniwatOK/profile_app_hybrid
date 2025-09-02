@@ -16,7 +16,7 @@ const Book = () => {
     console.log("Book component mounted");
 
     try {
-      fetch("http://10.0.15.34:3000/api/books?page=1&limit=10")
+      fetch("http://10.26.137.44:3000/api/books?page=1&limit=10")
         .then((response) => response.json())
         .then((data) => {
           console.log("Book data fetched successfully:", data.books);
@@ -36,7 +36,7 @@ const Book = () => {
       </Link>
       <FlatList
         data={data}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item._id}
         renderItem={(item) => {
           return (
             <View key={item.item._id}>

@@ -9,7 +9,7 @@ const BookDetail = () => {
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const response = await fetch(`http://10.0.15.34:3000/api/books/${id}`);
+        const response = await fetch(`http://10.26.137.44:3000/api/books/${id}`);
         const data = await response.json();
         setBook(data.book);
       } catch (error) {
@@ -31,7 +31,7 @@ const BookDetail = () => {
         price: 500,
         available: true,
       };
-      const response = await fetch(`http://10.0.15.34:3000/api/books/${id}`, {
+      const response = await fetch(`http://10.26.137.44:3000/api/books/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -52,7 +52,7 @@ const BookDetail = () => {
     //TODO show confirmation dialog
     // If confirmed, proceed with deletion
     try {
-      const response = await fetch(`http://10.0.15.34:3000/api/books/${id}`, {
+      const response = await fetch(`http://10.26.137.44:3000/api/books/${id}`, {
         method: "DELETE",
       });
       if (response.ok) {
