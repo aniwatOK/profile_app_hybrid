@@ -97,17 +97,6 @@ const BookNew = () => {
     <ScrollView contentContainerStyle={style.container}>
       <Text style={style.header}>Create a New Book</Text>
 
-      {/* ช่องหลังบ้าน (เอาไว้ทดสอบเท่านั้น) */}
-      <Text style={style.label}>Admin Token (JWT) – ชั่วคราวเพื่อทดสอบ</Text>
-      <TextInput
-        style={style.input}
-        placeholder="วาง JWT token ที่นี่ถ้า endpoint ต้องยืนยันตัวตน"
-        value={token}
-        onChangeText={setToken}
-        autoCapitalize="none"
-        autoCorrect={false}
-      />
-
       <Text style={style.label}>Title *</Text>
       <TextInput
         style={style.input}
