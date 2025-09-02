@@ -21,11 +21,23 @@ function StackLayout() {
       >
         <Stack.Screen
           name="index"
-          options={{ title: "Profile", headerLeft: () => <ThemeToggle /> }}
+          options={{ title: "Profile", headerRight: () => <ThemeToggle /> }}
         />
         <Stack.Screen
           name="about"
-          options={{ title: "About", headerLeft: () => <ThemeToggle /> }}
+          options={{ title: "About us", headerRight: () => <ThemeToggle /> }}
+        />
+        <Stack.Screen
+          name="book"
+          options={{ title: "Books", headerRight: () => <ThemeToggle /> }}
+        />
+        <Stack.Screen
+          name="signup"
+          options={{ title: "Register", headerRight: () => <ThemeToggle /> }}
+        />
+        <Stack.Screen
+          name="signin"
+          options={{ title: "Welcome", headerRight: () => <ThemeToggle /> }}
         />
       </Stack>
     </>

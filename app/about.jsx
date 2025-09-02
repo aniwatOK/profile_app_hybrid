@@ -29,9 +29,6 @@ export default function About() {
           <Text style={[styles.description, { color: color.text }]}>{courseData.description}</Text>
         </View>
       </View>
-      <Link href="/" style={[styles.profileButton, { backgroundColor: color.primary, shadowColor: color.textSecondary }]}> 
-        <Text style={[styles.profileButtonText, { color: color.background }]}>Profile</Text>
-      </Link>
     </ScrollView>
   );
 }

@@ -40,6 +40,15 @@ export default function Profile() {
         <Link href="/about" style={[styles.aboutButton, { backgroundColor: color.primary, shadowColor: color.textSecondary }]}> 
           <Text style={[styles.aboutButtonText, { color: color.background }]}>About</Text>
         </Link>
+        <Link href="/book" style={[styles.aboutButton, { backgroundColor: color.primary, shadowColor: color.textSecondary }]}> 
+          <Text style={[styles.aboutButtonText, { color: color.background }]}>Book</Text>
+        </Link>
+        <Link href="/signin" style={[styles.aboutButton, { backgroundColor: color.primary, shadowColor: color.textSecondary }]}> 
+          <Text style={[styles.aboutButtonText, { color: color.background }]}>SignIn</Text>
+        </Link>
+        <Link href="/signup" style={[styles.aboutButton, { backgroundColor: color.primary, shadowColor: color.textSecondary }]}> 
+          <Text style={[styles.aboutButtonText, { color: color.background }]}>SignUp</Text>
+        </Link>
       </ScrollView>
     </View>
   );
@@ -105,7 +114,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   aboutButton: {
-    marginTop: 28,
+    marginVertical: 10, // เพิ่มระยะห่างบน-ล่างแต่ละปุ่ม
     paddingVertical: 12,
     paddingHorizontal: 40,
     borderRadius: 8,
