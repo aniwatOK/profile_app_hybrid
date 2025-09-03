@@ -11,8 +11,7 @@ import {
 } from "react-native";
 import { useLocalSearchParams, router } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-
-const API_ROOT = "http://10.26.137.44:3000";
+import { apiFetch } from "./config/api";
 
 export default function BookDetail() {
   const { id } = useLocalSearchParams();
@@ -38,7 +37,7 @@ export default function BookDetail() {
     try {
       setError("");
       setLoading(true);
-      const res = await fetch(`${API_ROOT}/api/books/${id}`);
+      const res = await apiFetch(`/api/books/${id}`);
       const json = await res.json();
       if (!res.ok) throw new Error(json?.message || `(${res.status})`);
       const b = json?.book ?? json;
@@ -76,7 +75,7 @@ export default function BookDetail() {
         price: parseFloat(form.price),
         available: !!form.available,
       };
-      const res = await fetch(`${API_ROOT}/api/books/${id}`, {
+      const res = await apiFetch(`/api/books/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
@@ -102,7 +101,7 @@ export default function BookDetail() {
   const handleDelete = async () => {
     try {
       setDeleting(true);
-      const res = await fetch(`${API_ROOT}/api/books/${id}`, { method: "DELETE" });
+      const res = await apiFetch(`/api/books/${id}`, { method: "DELETE" });
       if (!res.ok) {
         const json = await res.json().catch(() => ({}));
         throw new Error(json?.message || `(${res.status})`);

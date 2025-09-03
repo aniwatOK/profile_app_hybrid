@@ -28,7 +28,7 @@ export default function Hub() {
       >
         <Text style={[s.header, { color: color.text }]}>Home</Text>
         <Text style={[s.subheader, { color: color.textSecondary }]}>
-          เลือกเมนูเพื่อไปยังหน้าอื่น ๆ
+          เลือกเมนูเพื่อไปยังงานอื่น ๆ
         </Text>
 
         {/* สแต็กแนวตั้ง: การ์ดเต็มความกว้าง, เว้นระยะเท่ากัน */}
@@ -72,6 +72,9 @@ export default function Hub() {
                 <Text style={[s.title, { color: color.text }]}>Books</Text>
                 <Text style={[s.subtitle, { color: color.textSecondary }]} numberOfLines={2}>
                   Book CRUD
+                </Text>
+                <Text style={[s.subtitle, { color:"#d32f2f" }]} numberOfLines={3}>
+                  **ก่อนเข้าใช้งาน ต้องเปลี่ยน BASE_URL ในไฟล์ app/config/api.js ให้ตรงกับ IP ของเครื่องของท่านและเปิด API ใน Docker ก่อนใช้งาน**
                 </Text>
               </View>
             </TouchableOpacity>

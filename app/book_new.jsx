@@ -12,6 +12,7 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { router } from "expo-router";
+import { apiFetch } from "./config/api";
 
 const BookNew = () => {
   // ฟิลด์สำหรับสร้างหนังสือ
@@ -59,7 +60,7 @@ const BookNew = () => {
     try {
       setLoading(true);
 
-      const res = await fetch("http://10.26.137.44:3000/api/books", {
+      const res = await apiFetch(`/api/books`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

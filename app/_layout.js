@@ -33,11 +33,11 @@ function StackLayout() {
         />
         <Stack.Screen
           name="signup"
-          options={{ title: "Register", headerRight: () => <ThemeToggle /> }}
+          options={{ title: "Sign Up", headerRight: () => <ThemeToggle /> }}
         />
         <Stack.Screen
           name="signin"
-          options={{ title: "Welcome", headerRight: () => <ThemeToggle /> }}
+          options={{ title: "Sign In", headerRight: () => <ThemeToggle /> }}
         />
         <Stack.Screen
           name="profile"

@@ -10,9 +10,7 @@ import {
   TextInput,
   RefreshControl,
 } from "react-native";
-
-
-const API_URL = "http://10.26.137.44:3000/api/books?page=1&limit=20";
+import { apiFetch } from "./config/api";
 
 const Book = () => {
   const [data, setData] = useState([]);
@@ -24,7 +22,7 @@ const Book = () => {
   const fetchBooks = async () => {
     try {
       setError("");
-      const res = await fetch(API_URL);
+      const res = await apiFetch(`/api/books?page=1&limit=20`);
       const json = await res.json();
       setData(json?.books ?? []);
     } catch (e) {
