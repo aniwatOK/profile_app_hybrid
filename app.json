@@ -14,7 +14,9 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "อนุญาตให้แอปใช้ Face ID เพื่อยืนยันตัวตน"
+      }
     },
     "android": {
       "adaptiveIcon": {

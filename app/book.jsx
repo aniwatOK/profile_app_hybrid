@@ -11,8 +11,9 @@ import {
   RefreshControl,
 } from "react-native";
 import { apiFetch } from "./config/api";
+import RequireLocalAuth from "./components/RequireLocalAuth";
 
-const Book = () => {
+const BookScreen = () => {
   const [data, setData] = useState([]);
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
@@ -79,13 +80,9 @@ const Book = () => {
             <View style={styles.metaRow}>
               {!!item.genre && <Text style={styles.badge}>{item.genre}</Text>}
               {!!item.year && <Text style={styles.badgeMuted}>{item.year}</Text>}
-
               {typeof item.price !== "undefined" && item.price !== null && (
-                <Text style={styles.price}>
-                  ฿{Number(item.price).toFixed(2)}
-                </Text>
+                <Text style={styles.price}>฿{Number(item.price).toFixed(2)}</Text>
               )}
-
               <Text
                 style={[
                   styles.badgeStatus,
@@ -144,7 +141,6 @@ const Book = () => {
         </View>
       </View>
 
-
       {/* Search */}
       <View style={styles.searchBox}>
         <TextInput
@@ -183,22 +179,20 @@ const Book = () => {
   );
 };
 
-export default Book;
+// ✅ default export เดียว: ห่อด้วย Local Auth ก่อนเข้า Book
+export default function BookProtected() {
+  return (
+    <RequireLocalAuth>
+      <BookScreen />
+    </RequireLocalAuth>
+  );
+}
 
 const styles = StyleSheet.create({
-  container: {
-    marginVertical: 14,
-    marginHorizontal: 20,
-    alignItems: "stretch",
-  },
+  container: { marginVertical: 14, marginHorizontal: 20, alignItems: "stretch" },
   center: { alignItems: "center", justifyContent: "center" },
 
-  headerRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginBottom: 10,
-  },
+  headerRow: { flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginBottom: 10 },
   header: { fontSize: 26, fontWeight: "800", letterSpacing: 0.2 },
 
   searchBox: {
@@ -218,80 +212,32 @@ const styles = StyleSheet.create({
     padding: 14,
     borderWidth: 1,
     borderColor: "#ebedf0",
-    // shadow iOS
     shadowColor: "#000",
     shadowOpacity: 0.08,
     shadowRadius: 8,
     shadowOffset: { width: 0, height: 4 },
-    // elevation Android
     elevation: 2,
   },
   row: { flexDirection: "row", gap: 12 },
 
-  avatar: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-    backgroundColor: "#e8f0ff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
+  avatar: { width: 44, height: 44, borderRadius: 22, backgroundColor: "#e8f0ff", alignItems: "center", justifyContent: "center" },
   avatarText: { fontSize: 18, fontWeight: "800", color: "#2b65ff" },
 
   title: { fontSize: 18, fontWeight: "700" },
   author: { fontSize: 14, opacity: 0.75, marginTop: 2 },
   desc: { fontSize: 14, opacity: 0.9, marginTop: 8, lineHeight: 20 },
 
-  metaRow: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 8,
-    alignItems: "center",
-    marginTop: 10,
-  },
-  badge: {
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderRadius: 999,
-    backgroundColor: "#eaf8f1",
-    color: "#0c6b43",
-    overflow: "hidden",
-  },
-  badgeMuted: {
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderRadius: 999,
-    backgroundColor: "#f2f4f7",
-    color: "#6b7280",
-    overflow: "hidden",
-  },
-  badgeStatus: {
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderRadius: 999,
-    fontWeight: "600",
-    overflow: "hidden",
-    marginLeft: "auto",
-  },
+  metaRow: { flexDirection: "row", flexWrap: "wrap", gap: 8, alignItems: "center", marginTop: 10 },
+  badge: { paddingHorizontal: 10, paddingVertical: 4, borderRadius: 999, backgroundColor: "#eaf8f1", color: "#0c6b43", overflow: "hidden" },
+  badgeMuted: { paddingHorizontal: 10, paddingVertical: 4, borderRadius: 999, backgroundColor: "#f2f4f7", color: "#6b7280", overflow: "hidden" },
+  badgeStatus: { paddingHorizontal: 10, paddingVertical: 4, borderRadius: 999, fontWeight: "600", overflow: "hidden", marginLeft: "auto" },
   badgeOk: { backgroundColor: "#e8f7ee", color: "#117a44" },
   badgeNo: { backgroundColor: "#feeceb", color: "#b42318" },
   price: { fontWeight: "700", opacity: 0.9 },
 
-  primaryBtn: {
-    backgroundColor: "#2b65ff",
-    paddingHorizontal: 14,
-    paddingVertical: 10,
-    borderRadius: 10,
-  },
+  primaryBtn: { backgroundColor: "#2b65ff", paddingHorizontal: 14, paddingVertical: 10, borderRadius: 10 },
   primaryBtnText: { color: "#fff", fontWeight: "700" },
 
-  outlineBtn: {
-    paddingHorizontal: 14,
-    paddingVertical: 10,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: "#cbd5e1",
-    backgroundColor: "#fff",
-  },
+  outlineBtn: { paddingHorizontal: 14, paddingVertical: 10, borderRadius: 10, borderWidth: 1, borderColor: "#cbd5e1", backgroundColor: "#fff" },
   outlineBtnText: { color: "#334155", fontWeight: "700" },
 });
