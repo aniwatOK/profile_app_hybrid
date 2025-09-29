@@ -7,4 +7,5 @@
 #### 4. Enjoy kub.
 
 ## New Update Local-Authentication for book_CRUD :sparkles:
+  - When your press at Book icon. Local-Authentication will work.
 
