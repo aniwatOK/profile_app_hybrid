@@ -6,5 +6,5 @@
 #### 3. Where your scan QR-code expo-app. press at Book icon (This for Book_CRUD Classwork).
 #### 4. Enjoy kub.
 
-## Update New Local-Authentication for book_CRUD
+## New Update Local-Authentication for book_CRUD :sparkles:
 
